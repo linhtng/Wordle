@@ -1,0 +1,10 @@
+.grid-div{
+	margin: 30vh 30vw;
+	margin-top: 10vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
