@@ -1,4 +1,5 @@
 import file from "../words.txt";
+import "../Styles/letter_colors.css"
 
 // Function to read and parse the content of "words.txt"
 function fetchWordList(callback) {
@@ -26,8 +27,40 @@ fetchWordList(function (wordList) {
     console.log("wordlLst: " + wordList)
     const randomWord = getRandomWord(wordList);
     console.log("Randomly selected word:", randomWord);
-    // Proceed with your Wordle game logic here
+    // Usage example:
+    const userGuess = "ample"; // Replace this with the actual user's guess
+    checkGuess(userGuess, randomWord);
 });
 
-const getWordlist = {fetchWordList, getRandomWord}
-export default getWordlist
+// Function to check the user's guess against the target word
+function checkGuess(userGuess, targetWord) {
+    if (userGuess === targetWord) {
+        // Correct guess: The user wins the game
+        console.log("Congratulations! You guessed the word correctly!");
+        // Add any code to display a winning message and handle game end
+    } else {
+        // Incorrect guess: Provide feedback on each letter
+        let feedback = "";
+        for (let i = 0; i < userGuess.length; i++) {
+            if (userGuess[i] === targetWord[i]) {
+                // Right letter, right place (turn green)
+                feedback += `<span class="correct">${userGuess[i]}</span>`;
+                //feedback += "O";
+            } else if (targetWord.includes(userGuess[i])) {
+                // Right letter, wrong place (turn yellow)
+                feedback += `<span class="right-place">${userGuess[i]}</span>`;
+                //feedback += "X";
+            } else {
+                // Wrong letter (turn grey)
+                feedback += `<span class="incorrect">${userGuess[i]}</span>`;
+                //feedback += "-";
+            }
+        }
+
+        console.log("Feedback:", feedback);
+        // Display feedback to the user to indicate correctness of each letter
+        // Add any code to handle incorrect guess or display feedback in the UI
+    }
+}
+
+export default fetchWordList

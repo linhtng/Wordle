@@ -1,0 +1,12 @@
+/* Define CSS classes for the letter colors */
+.correct {
+    color: green;
+}
+
+.right-place {
+    color: yellow;
+}
+
+.incorrect {
+    color: grey;
+}
