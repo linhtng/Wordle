@@ -1,7 +1,8 @@
 import './App.css';
 import { useState } from 'react';
-import { Grid } from './Components/Grid';
+import { Grid } from './components/Grid';
 
+import fetchWordList from './components/readWordlist';
 function App() {
   const [userInput, setUserInput] = useState("");
 
