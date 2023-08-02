@@ -62,7 +62,12 @@ export const execFetch = (str) => {
         // Usage example:
         const userGuess = str; // Replace this with the actual user's guess
         console.log(userGuess);
-        checkGuess(userGuess, randomWord);
+        if (wordList.includes(userGuess) === true) {
+            checkGuess(userGuess, randomWord);
+        }
+        else {
+            console.log("Not in word list");
+        }
     });
 }
 
