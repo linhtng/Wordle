@@ -2,7 +2,7 @@ import file from "../words.txt";
 import "../Styles/letter_colors.css"
 
 // Function to read and parse the content of "words.txt"
-function fetchWordList(callback) {
+function fetchWordList(string, callback) {
     fetch(file)
         .then(response => response.text())
         .then(wordListText => {
@@ -21,17 +21,6 @@ function getRandomWord(wordList) {
 }
 
 // Usage:
-fetchWordList(function (wordList) {
-    // Now you have the parsed array 'wordList' containing all the words
-    // You can randomly select a word from 'wordList' using the getRandomWord function
-    console.log("wordlLst: " + wordList)
-    const randomWord = getRandomWord(wordList);
-    console.log("Randomly selected word:", randomWord);
-    // Usage example:
-    const userGuess = "ample"; // Replace this with the actual user's guess
-    checkGuess(userGuess, randomWord);
-});
-
 // Function to check the user's guess against the target word
 function checkGuess(userGuess, targetWord) {
     if (userGuess === targetWord) {
@@ -44,16 +33,16 @@ function checkGuess(userGuess, targetWord) {
         for (let i = 0; i < userGuess.length; i++) {
             if (userGuess[i] === targetWord[i]) {
                 // Right letter, right place (turn green)
-                feedback += `<span class="correct">${userGuess[i]}</span>`;
-                //feedback += "O";
+                //feedback += `<span class="correct">${userGuess[i]}</span>`;
+                feedback += "O";
             } else if (targetWord.includes(userGuess[i])) {
                 // Right letter, wrong place (turn yellow)
-                feedback += `<span class="right-place">${userGuess[i]}</span>`;
-                //feedback += "X";
+                //feedback += `<span class="right-place">${userGuess[i]}</span>`;
+                feedback += "X";
             } else {
                 // Wrong letter (turn grey)
-                feedback += `<span class="incorrect">${userGuess[i]}</span>`;
-                //feedback += "-";
+                //feedback += `<span class="incorrect">${userGuess[i]}</span>`;
+                feedback += "-";
             }
         }
 
@@ -61,6 +50,20 @@ function checkGuess(userGuess, targetWord) {
         // Display feedback to the user to indicate correctness of each letter
         // Add any code to handle incorrect guess or display feedback in the UI
     }
+}
+
+export const execFetch = (str) => {
+    fetchWordList(str, function (wordList) {
+        // Now you have the parsed array 'wordList' containing all the words
+        // You can randomly select a word from 'wordList' using the getRandomWord function
+        console.log("wordlLst: " + wordList)
+        const randomWord = getRandomWord(wordList);
+        console.log("Randomly selected word:", randomWord);
+        // Usage example:
+        const userGuess = str; // Replace this with the actual user's guess
+        console.log(userGuess);
+        checkGuess(userGuess, randomWord);
+    });
 }
 
 export default fetchWordList

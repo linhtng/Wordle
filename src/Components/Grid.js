@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import { LineComponent } from "./LineComponent"
 import {Keyboard} from "./Keyboard"
 import { GameConfig } from "../GameConfig";
+import { execFetch } from "./readWordlist";
 
 
 export const Grid = () => {
 
 	const [gameState, setGameState] = useState(null)
 	const [currentLine, setCurrentLine] = useState(0);
-	const [currentLetter, setCurrentLetter] = useState("");
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const increaseIndex = () => setCurrentIndex(currentIndex++);
 	const decreaseIndex = () => setCurrentIndex(currentIndex--);
@@ -28,11 +28,6 @@ export const Grid = () => {
 			})
 		)))
 		setCurrentIndex(currentIndex + 1);
-		if (currentIndex >= 5)
-		{
-			setCurrentIndex(0);
-			setCurrentLine(currentLine + 1);
-		}
 	}
 
 	const removeLetter = () => {
@@ -48,6 +43,23 @@ export const Grid = () => {
 		)))
 		setCurrentIndex(currentIndex - 1);
 	}
+
+	const checkWinningCondition = () => {
+		if (currentIndex === 5)
+		{
+			let str = "";
+			for (let i = 0; i < 5; i++)
+				str += gameState[currentLine][i].letter
+			console.log(str);
+			execFetch(str);
+			setCurrentIndex(0);
+			setCurrentLine(currentLine + 1);
+		}
+	}
+
+	useEffect(() => {
+		checkWinningCondition();
+	}, [currentIndex])
 
 	useEffect(()=> {
 		setGameState(GameConfig);
