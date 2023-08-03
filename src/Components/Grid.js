@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { LineComponent } from "./LineComponent"
 import {Keyboard} from "./Keyboard"
 import { GameConfig } from "../GameConfig";
+import { OutputComponent } from "./OutputComponent";
 import { Message } from "./Message";
 import file from "../words.txt";
 
@@ -23,7 +24,7 @@ export const Grid = () => {
 				removeLetter();
 			else
 				addLetter(letter);
-			if (showMessage)
+			if (showMessage && currentIndex  < 5)
 				setShowMessage(false);
 	}
 
@@ -37,6 +38,8 @@ export const Grid = () => {
 			})
 		)))
 		setCurrentIndex(currentIndex + 1);
+		if (currentIndex >= 5)
+			setCurrentIndex(5)
 	}
 
 	const removeLetter = () => {
@@ -137,11 +140,22 @@ export const Grid = () => {
 			else
 			{
 				setShowMessage(true)
-				setMessage("Invalid string");
+				setMessage("Word not in word list");
 			}
 		}
 	}
 
+	const StartGame = () => {
+		setCurrentIndex(0);
+		setCurrentLine(0);
+		setGameOver(false);
+		setWon(false);
+		getRandomWord(wordList);
+		setGameState(GameConfig);
+	}
+	useEffect(()=> {
+		StartGame();
+	}, [])
 	useEffect(() => {
 		checkWinningCondition();
 	}, [currentIndex])
@@ -149,7 +163,7 @@ export const Grid = () => {
 	useEffect(()=> {
 		setGameState(GameConfig);
 		fetchWordList(file);
-	}, [wordList.length])
+	}, [])
 
 	if (!gameState || wordList.length === 0)
 		return <div>loading</div>
@@ -168,9 +182,9 @@ export const Grid = () => {
 			}
 				{ showMessage && <Message message={message}/>}
 			</div>
-			{(!gameOver) && <Keyboard fc={handleInput} />}
-			{gameOver && <div>Game is over</div>}
-			{won && <h1>Congrats! you won</h1>}
+			{!gameOver && <Keyboard fc={handleInput} />}
+			{gameOver && <OutputComponent string={randomWord} won={won}/>}
+			{gameOver && <button id="PlayAgainButton" onClick={StartGame}>Play Again</button>}
 		</>
 	)
 }

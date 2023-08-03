@@ -8,6 +8,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1 id="wordle-title">42 - Wordle</h1>
       <Grid />
     </div>
   );
