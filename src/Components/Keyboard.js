@@ -1,7 +1,7 @@
 import "../Styles/Keyboard.css"
 import { KeyboardButton } from "./KeyboardButton";
 
-export const Keyboard = ({fc, del}) => {
+export const Keyboard = ({fc}) => {
 
 	const keys1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
 	const keys2 = ['a','s','d','f','g','h','i','j','k','l'];
@@ -10,15 +10,14 @@ export const Keyboard = ({fc, del}) => {
 	return (
 		<>
 			<div className="keyboard-line">
-			{ keys1.map((key, i) => <KeyboardButton fc={fc} del={del} key={i} text={key} id={i}/>) }
+			{ keys1.map((key, i) => <KeyboardButton fc={fc} key={i} text={key} id={i}/>) }
 			</div>
 			<div className="keyboard-line">
-			{ keys2.map((key, i) => <KeyboardButton fc={fc} del={del} key={i} text={key} id={i}/>) }
+			{ keys2.map((key, i) => <KeyboardButton fc={fc} key={i} text={key} id={i}/>) }
 			</div>
 			<div className="keyboard-line">
-			{ keys3.map((key, i) => <KeyboardButton fc={fc} del={del} key={i} text={key} id={i}/>) }
+			{ keys3.map((key, i) => <KeyboardButton fc={fc} key={i} text={key} id={i}/>) }
 			</div>
-
 		</>
 	)
 }
