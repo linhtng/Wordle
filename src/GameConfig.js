@@ -3,162 +3,162 @@ export const GameConfig = [
 		{
 			id: 0,
 			letter: "",
-			expected: ""
+			color:""
 		},
 		{
 			id: 1,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 2,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 3,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 4,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 	],
 	[
 		{
 			id: 0,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 1,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 2,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 3,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 4,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 	],
 	[
 		{
 			id: 0,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 1,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 2,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 3,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 4,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 	],
 	[
 		{
 			id: 0,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 1,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 2,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 3,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 4,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 	],
 	[
 		{
 			id: 0,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 1,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 2,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 3,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 4,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 	],
 	[
 		{
 			id: 0,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 1,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 2,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 3,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 		{
 			id: 4,
 			letter: "",
-			expected: ""
+			color: ""
 		},
 	]
 ]
