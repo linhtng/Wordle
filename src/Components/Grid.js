@@ -1,7 +1,7 @@
 import "../Styles/grid.css"
 import { useEffect, useState } from "react";
 import { LineComponent } from "./LineComponent"
-import {Keyboard} from "./Keyboard"
+import { Keyboard } from "./Keyboard"
 import { GameConfig } from "../GameConfig";
 import { OutputComponent } from "./OutputComponent";
 import { Message } from "./Message";
@@ -20,19 +20,19 @@ export const Grid = () => {
 	const [message, setMessage] = useState("");
 
 	const handleInput = (letter) => {
-			if (letter === 'DEL')
-				removeLetter();
-			else
-				addLetter(letter);
-			if (showMessage && currentIndex  < 5)
-				setShowMessage(false);
+		if (letter === 'DEL')
+			removeLetter();
+		else
+			addLetter(letter);
+		if (showMessage && currentIndex < 5)
+			setShowMessage(false);
 	}
 
 	const addLetter = (letter) => {
 		setGameState(gameState.map((line, n) => (
 			line.map((item, i) => {
 				if (currentIndex === i && n === currentLine)
-					return {...item, letter}
+					return { ...item, letter }
 				else
 					return item;
 			})
@@ -47,7 +47,7 @@ export const Grid = () => {
 		setGameState(gameState.map((line, n) => (
 			line.map((item, i) => {
 				if (indexToRemove === i && n === currentLine)
-					return {...item, letter: ""}
+					return { ...item, letter: "" }
 				else
 					return item;
 			})
@@ -84,15 +84,13 @@ export const Grid = () => {
 	const SetProperColor = (feedback) => {
 		setGameState(gameState.map((line, n) => (
 			line.map((item, i) => {
-				if (n === currentLine)
-				{
-					console.log(`feedback${i}: ${feedback[i]}`);
+				if (n === currentLine) {
 					if (feedback[i] === "X")
-						return {...item, color:"yellow"}
+						return { ...item, color: "yellow" }
 					else if (feedback[i] === "O")
-						return {...item, color:"green"}
+						return { ...item, color: "green" }
 					else if (feedback[i] === "-")
-						return {...item, color:"lightgrey"}
+						return { ...item, color: "lightgrey" }
 					else
 						return item;
 				}
@@ -121,24 +119,20 @@ export const Grid = () => {
 	}
 
 	const checkWinningCondition = () => {
-		if (currentIndex === 5)
-		{
+		if (currentIndex === 5) {
 			let str = "";
 			for (let i = 0; i < 5; i++)
 				str += gameState[currentLine][i].letter
-			if (isStringInList(str))
-			{
+			if (isStringInList(str)) {
 				checkGuess(str);
 				setCurrentIndex(0);
 				setCurrentLine(currentLine + 1);
-				if (currentLine >= 5)
-				{
+				if (currentLine >= 5) {
 					setWon(false);
 					setGameOver(true);
 				}
 			}
-			else
-			{
+			else {
 				setShowMessage(true)
 				setMessage("Word not in word list");
 			}
@@ -153,14 +147,14 @@ export const Grid = () => {
 		getRandomWord(wordList);
 		setGameState(GameConfig);
 	}
-	useEffect(()=> {
+	useEffect(() => {
 		StartGame();
 	}, [])
 	useEffect(() => {
 		checkWinningCondition();
 	}, [currentIndex])
 
-	useEffect(()=> {
+	useEffect(() => {
 		setGameState(GameConfig);
 		fetchWordList(file);
 	}, [])
@@ -168,23 +162,23 @@ export const Grid = () => {
 	if (!gameState || wordList.length === 0)
 		return <div>loading</div>
 	else
-	return (
-		<>
-			<div className="grid-div">
-			{
-				gameState.map((line, i) =>
-					<LineComponent
-						currentIndex={currentIndex}
-						key = {i}
-						line={line}
-					/>
-				)
-			}
-				{ showMessage && <Message message={message}/>}
-			</div>
-			{!gameOver && <Keyboard fc={handleInput} />}
-			{gameOver && <OutputComponent string={randomWord} won={won}/>}
-			{gameOver && <button id="PlayAgainButton" onClick={StartGame}>Play Again</button>}
-		</>
-	)
+		return (
+			<>
+				<div className="grid-div">
+					{
+						gameState.map((line, i) =>
+							<LineComponent
+								currentIndex={currentIndex}
+								key={i}
+								line={line}
+							/>
+						)
+					}
+					{showMessage && <Message message={message} />}
+				</div>
+				{!gameOver && <Keyboard fc={handleInput} />}
+				{gameOver && <OutputComponent string={randomWord} won={won} />}
+				{gameOver && <button id="PlayAgainButton" onClick={StartGame}>Play Again</button>}
+			</>
+		)
 }
