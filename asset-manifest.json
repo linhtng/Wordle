@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Worldle/static/css/main.06259866.css",
-    "main.js": "/Worldle/static/js/main.e0e504d8.js",
-    "static/js/787.e01666d6.chunk.js": "/Worldle/static/js/787.e01666d6.chunk.js",
-    "static/media/words.txt": "/Worldle/static/media/words.0acea1c53401a89146ab.txt",
-    "index.html": "/Worldle/index.html",
-    "main.06259866.css.map": "/Worldle/static/css/main.06259866.css.map",
-    "main.e0e504d8.js.map": "/Worldle/static/js/main.e0e504d8.js.map",
-    "787.e01666d6.chunk.js.map": "/Worldle/static/js/787.e01666d6.chunk.js.map"
+    "main.css": "/Wordle/static/css/main.06259866.css",
+    "main.js": "/Wordle/static/js/main.710164a1.js",
+    "static/js/787.e01666d6.chunk.js": "/Wordle/static/js/787.e01666d6.chunk.js",
+    "static/media/words.txt": "/Wordle/static/media/words.0acea1c53401a89146ab.txt",
+    "index.html": "/Wordle/index.html",
+    "main.06259866.css.map": "/Wordle/static/css/main.06259866.css.map",
+    "main.710164a1.js.map": "/Wordle/static/js/main.710164a1.js.map",
+    "787.e01666d6.chunk.js.map": "/Wordle/static/js/787.e01666d6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.06259866.css",
-    "static/js/main.e0e504d8.js"
+    "static/js/main.710164a1.js"
   ]
 }
